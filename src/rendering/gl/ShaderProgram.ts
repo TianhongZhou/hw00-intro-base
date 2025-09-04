@@ -30,6 +30,12 @@ class ShaderProgram {
   unifViewProj: WebGLUniformLocation;
   unifColor: WebGLUniformLocation;
 
+  unifTime: WebGLUniformLocation;
+  unifAmp: WebGLUniformLocation;
+  unifFreq: WebGLUniformLocation;
+  unifNoiseScale: WebGLUniformLocation;
+  unifNoiseAmp: WebGLUniformLocation;
+
   constructor(shaders: Array<Shader>) {
     this.prog = gl.createProgram();
 
@@ -48,6 +54,12 @@ class ShaderProgram {
     this.unifModelInvTr = gl.getUniformLocation(this.prog, "u_ModelInvTr");
     this.unifViewProj   = gl.getUniformLocation(this.prog, "u_ViewProj");
     this.unifColor      = gl.getUniformLocation(this.prog, "u_Color");
+
+    this.unifTime       = gl.getUniformLocation(this.prog, "u_Time");
+    this.unifAmp        = gl.getUniformLocation(this.prog, "u_Amp");
+    this.unifFreq       = gl.getUniformLocation(this.prog, "u_Freq");
+    this.unifNoiseScale = gl.getUniformLocation(this.prog, "u_NoiseScale");
+    this.unifNoiseAmp   = gl.getUniformLocation(this.prog, "u_NoiseAmp");
   }
 
   use() {
@@ -83,6 +95,31 @@ class ShaderProgram {
     if (this.unifColor !== -1) {
       gl.uniform4fv(this.unifColor, color);
     }
+  }
+
+  setTime(t: number) {
+    this.use();
+    if (this.unifTime) gl.uniform1f(this.unifTime, t);
+  }
+
+  setAmplitude(a: number) {
+    this.use();
+    if (this.unifAmp) gl.uniform1f(this.unifAmp, a);
+  }
+
+  setFrequency(f: number) {
+    this.use();
+    if (this.unifFreq) gl.uniform1f(this.unifFreq, f);
+  }
+
+  setNoiseScale(s: number) {
+    this.use();
+    if (this.unifNoiseScale) gl.uniform1f(this.unifNoiseScale, s);
+  }
+  
+  setNoiseAmp(a: number) {
+    this.use();
+    if (this.unifNoiseAmp) gl.uniform1f(this.unifNoiseAmp, a);
   }
 
   draw(d: Drawable) {
