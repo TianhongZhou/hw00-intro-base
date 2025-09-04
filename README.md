@@ -1,5 +1,22 @@
 # HW 0: Intro to Javascript and WebGL
 
+Description:
+
+- Create Cube class
+- Render Cube on screen
+- Add variables on GUI
+- Create custom shaders
+  - Noise-based color
+  - Periodical vertex position
+
+Screenshot:
+
+![](images/overall.png)
+
+Link:
+
+[Live Demo](https://tianhongzhou.github.io/hw00-intro-base/)
+
 <p align="center">
   <img width="360" height="360" src="https://user-images.githubusercontent.com/1758825/132532354-e3a45402-e484-499e-bfa7-2d73b9f2c946.png">
 </p>
