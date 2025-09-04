@@ -117,7 +117,7 @@ function main() {
     custom.setTime(timeSec);
     custom.setAmplitude(controls.amp);
     custom.setFrequency(controls.freq);
-    custom.setNoiseScale(controls.noiseScale);
+    custom.setNoiseScale(controls.noiseScale); 
     custom.setNoiseAmp(controls.noiseAmp);
     renderer.render(camera, custom, [cube], vec4.fromValues(col[0] * s, col[1] * s, col[2] * s, 1));
     stats.end();
